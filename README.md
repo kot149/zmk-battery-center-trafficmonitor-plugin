@@ -2,19 +2,20 @@
 
 A [TrafficMonitor](https://github.com/zhongyang219/TrafficMonitor) plugin that displays the battery snapshot published by [zmk-battery-center](https://github.com/kot149/zmk-battery-center).
 
-The snapshot is read in `DataRequired()`. TrafficMonitor's frequently called value getter only returns the cached display text.
+The snapshot is loaded when the plugin initializes, and refreshed in `DataRequired()`. TrafficMonitor's frequently called value getter only returns cached display text.
 
 ## Display
 
-The plugin provides one item named `ZMK Battery`.
+The plugin creates one item per device when TrafficMonitor loads it. Each item uses the device ID from the snapshot as its stable ID and is labeled with the device display name.
 
 ```text
-87%/64%*
+ZMK: Corne    87%/64%*
+ZMK: Temper   92%/80%
 ```
 
-The value lists battery levels in snapshot order, separated by `/`. `*` marks a stale last-known value. The tooltip shows full part names, device connection states, and the `current`, `stale`, or `unavailable` status of every battery part.
+The value lists that device's battery levels in snapshot order, separated by `/`. `*` marks a stale last-known value. The tooltip shows full part names, device connection states, and the `current`, `stale`, or `unavailable` status of every battery part.
 
-When a snapshot read fails, the last good value remains visible and the tooltip reports the error.
+When a snapshot read fails, the last good values remain visible and the tooltip reports the error. Changes to the device list require restarting TrafficMonitor.
 
 ## Build
 
