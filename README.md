@@ -1,6 +1,6 @@
 # zmk-battery-center TrafficMonitor plugin
 
-A TrafficMonitor plugin that displays the battery snapshot published by [zmk-battery-center](https://github.com/kot149/zmk-battery-center).
+A [TrafficMonitor](https://github.com/zhongyang219/TrafficMonitor) plugin that displays the battery snapshot published by [zmk-battery-center](https://github.com/kot149/zmk-battery-center).
 
 The snapshot is read in `DataRequired()`. TrafficMonitor's frequently called value getter only returns the cached display text.
 
