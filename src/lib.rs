@@ -106,7 +106,7 @@ fn render_snapshot(snapshot: Snapshot) -> Result<(String, String), String> {
         let parts = if part_values.is_empty() {
             "N/A".to_string()
         } else {
-            part_values.join(" | ")
+            part_values.join("/")
         };
 
         values.push(if multiple_devices {
@@ -142,11 +142,7 @@ fn format_part_value(part: &BatteryPart) -> String {
     } else {
         ""
     };
-    format!(
-        "{} {}{suffix}",
-        part.display_name,
-        format_level(part.level_percent)
-    )
+    format!("{}{suffix}", format_level(part.level_percent))
 }
 
 fn format_level(level: Option<u8>) -> String {
@@ -218,7 +214,7 @@ mod tests {
 
         let (value, tooltip) = render_snapshot(snapshot).unwrap();
 
-        assert_eq!(value, "Central 87% | Right hand 64%* | Left hand N/A");
+        assert_eq!(value, "87%/64%*/N/A");
         assert!(tooltip.contains("Work keyboard (connected)"));
         assert!(tooltip.contains("Right hand: 64% (stale)"));
     }

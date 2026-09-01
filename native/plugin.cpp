@@ -19,7 +19,7 @@ public:
     const wchar_t* GetItemId() const override { return L"zmk_battery"; }
     const wchar_t* GetItemLableText() const override { return L"ZMK"; }
     const wchar_t* GetItemValueText() const override { return value_.c_str(); }
-    const wchar_t* GetItemValueSampleText() const override { return L"Central 100% | Peripheral 100%"; }
+    const wchar_t* GetItemValueSampleText() const override { return L"100%*/100%*"; }
 
     void Refresh()
     {

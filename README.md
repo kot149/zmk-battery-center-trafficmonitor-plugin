@@ -9,10 +9,10 @@ The snapshot is read in `DataRequired()`. TrafficMonitor's frequently called val
 The plugin provides one item named `ZMK Battery`.
 
 ```text
-Central 87% | Right hand 64%*
+87%/64%*
 ```
 
-`*` marks a stale last-known value. The tooltip shows device connection states and the `current`, `stale`, or `unavailable` status of every battery part.
+The value lists battery levels in snapshot order, separated by `/`. `*` marks a stale last-known value. The tooltip shows full part names, device connection states, and the `current`, `stale`, or `unavailable` status of every battery part.
 
 When a snapshot read fails, the last good value remains visible and the tooltip reports the error.
 
